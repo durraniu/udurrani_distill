@@ -1,7 +1,7 @@
 ---
-title: "Umair Durrani"
+title: "Welcome to the website"
 description: |
-  Welcome to the website. Read about me below, and checkout other pages on the top-right.
+  Read about me below, and checkout other pages on the top-right
 site: distill::distill_website
 ---
 
@@ -23,3 +23,10 @@ knitr::opts_chunk$set(echo = FALSE)
 
 
 ## Education
+
+### Ph.D. Civil Engineering (Candidate)	2015 – 2021
+-   University of Windsor, Windsor, Ontario, Canada	 
+
+### B.Sc. Transportation Engineering	 2005 – 2009
+-   University of Engineering and Technology Lahore, Pakistan
+

@@ -1,8 +1,9 @@
 name: "udurrani_distill"
-title: "Home"
+title: "Umair Durrani"
 description: |
   Home
 output_dir: "_site"
+theme: theme_umair.css
 navbar:
   right:
     - text: "About"
