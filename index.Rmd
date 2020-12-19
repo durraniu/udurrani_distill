@@ -13,9 +13,11 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
-## About me
+## About me  
+
 
 ![](umair2.png){width=40%}
+
 
 ## Research
 

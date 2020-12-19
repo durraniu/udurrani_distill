@@ -5,15 +5,15 @@
       "title": "Blog",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2020-12-19T03:07:36-05:00"
+      "last_modified": "2020-12-19T03:13:59-05:00"
     },
     {
       "path": "index.html",
       "title": "Welcome to the website",
       "description": "Read about me below, and checkout other pages on the top-right\n",
       "author": [],
-      "contents": "\r\n\r\nAbout me\r\nResearch\r\nEducation\r\nPh.D. Civil Engineering (Candidate) 2015 – 2021\r\nUniversity of Windsor, Windsor, Ontario, Canada\r\nB.Sc. Transportation Engineering 2005 – 2009\r\nUniversity of Engineering and Technology Lahore, Pakistan\r\n\r\n\r\n\r\n",
-      "last_modified": "2020-12-19T03:07:39-05:00"
+      "contents": "\r\nAbout me\r\n\r\nResearch\r\nEducation\r\nPh.D. Civil Engineering (Candidate) 2015 – 2021\r\nUniversity of Windsor, Windsor, Ontario, Canada\r\nB.Sc. Transportation Engineering 2005 – 2009\r\nUniversity of Engineering and Technology Lahore, Pakistan\r\n\r\n\r\n\r\n",
+      "last_modified": "2020-12-19T03:14:02-05:00"
     }
   ],
   "collections": ["posts/posts.json"]
