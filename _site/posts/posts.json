@@ -1,0 +1,19 @@
+[
+  {
+    "path": "posts/2020-12-19-hellowww/",
+    "title": "Hello World",
+    "description": "First post",
+    "author": [
+      {
+        "name": "Umair Durrani",
+        "url": {}
+      }
+    ],
+    "date": "2020-12-19",
+    "categories": [],
+    "contents": "\r\nThis is my first post on this new website, created with the distill package in R.\r\n\r\n\r\n\r\n\r\n",
+    "preview": "https://media.giphy.com/media/MeJgB3yMMwIaHmKD4z/giphy.gif",
+    "last_modified": "2020-12-19T02:04:33-05:00",
+    "input_file": {}
+  }
+]

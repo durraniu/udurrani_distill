@@ -1,0 +1,20 @@
+{
+  "articles": [
+    {
+      "path": "Blog.html",
+      "title": "Blog",
+      "author": [],
+      "contents": "\r\n\r\n\r\n\r\n",
+      "last_modified": "2020-12-19T02:13:20-05:00"
+    },
+    {
+      "path": "index.html",
+      "title": "Umair Durrani",
+      "description": "Welcome to the website. Read about me below, and checkout other pages on the top-right.\n",
+      "author": [],
+      "contents": "\r\n\r\nAbout me\r\nResearch\r\nEducation\r\n\r\n\r\n\r\n",
+      "last_modified": "2020-12-19T02:13:23-05:00"
+    }
+  ],
+  "collections": ["posts/posts.json"]
+}

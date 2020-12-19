@@ -1,0 +1,20 @@
+name: "udurrani_distill"
+title: "Home"
+description: |
+  Home
+output_dir: "_site"
+navbar:
+  right:
+    - text: "About"
+      href: index.html
+    - text: "Blog"
+      href: Blog.html
+    - text: "R Gems"
+      href: https://rgems.netlify.app/
+    - icon: fab fa-github
+      href: https://github.com/durraniu
+    - icon: fab fa-twitter
+      href: https://twitter.com/umairdurrani87
+    - icon: fab fa-linkedin
+      href: https://www.linkedin.com/in/durraniu/
+output: distill::distill_article

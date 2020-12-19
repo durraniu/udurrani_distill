@@ -1,0 +1,23 @@
+---
+title: "Hello World"
+description: |
+  First post
+author:
+  - name: Umair Durrani
+date: 12-19-2020
+preview: https://media.giphy.com/media/MeJgB3yMMwIaHmKD4z/giphy.gif
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+This is my first post on this new website, created with the `distill` package in R.  
+
+![](https://media.giphy.com/media/MeJgB3yMMwIaHmKD4z/giphy.gif){width=25%}
+
+
