@@ -15,12 +15,17 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## About me  
 
-Download my resume [here](Umair_Durrani_Resume.pdf)
+I am a PhD student in Civil and Environmental Engineering at University of Windsor. My supervisors are Chris Lee and Hanna Maoh. My research is about driver behavior and its role in traffic safety in mixed traffic flow (cars and heavy-vehicles). I love R and Rstudio. 
+
 
 ![](umair2.png){width=40%}
 
+You can download my resume [here](Umair_Durrani_Resume.pdf). 
 
-<iframe src="https://umair.shinyapps.io/segmented_app_doc/" style="border: 2px solid black; width: 100%; height: 1000px;"></iframe>
+You know my name, now tell me about yourself:  
+
+
+<iframe src="https://umair.shinyapps.io/name_app/" style="width: 60%; height: 120px;"></iframe>
 
 
 ## Research

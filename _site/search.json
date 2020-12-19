@@ -5,15 +5,15 @@
       "title": "Blog",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2020-12-19T03:42:53-05:00"
+      "last_modified": "2020-12-19T04:02:16-05:00"
     },
     {
       "path": "index.html",
       "title": "Welcome to the website",
       "description": "Read about me below, and checkout other pages on the top-right\n",
       "author": [],
-      "contents": "\r\nAbout me\r\nDownload my resume here\r\n\r\n\r\n\r\nResearch\r\nEducation\r\nPh.D. Civil Engineering (Candidate) 2015 – 2021\r\nUniversity of Windsor, Windsor, Ontario, Canada\r\nB.Sc. Transportation Engineering 2005 – 2009\r\nUniversity of Engineering and Technology Lahore, Pakistan\r\n\r\n\r\n\r\n",
-      "last_modified": "2020-12-19T03:42:56-05:00"
+      "contents": "\r\nAbout me\r\nI am a PhD student in Civil and Environmental Engineering at University of Windsor. My supervisors are Chris Lee and Hanna Maoh. My research is about driver behavior and its role in traffic safety in mixed traffic flow (cars and heavy-vehicles). I love R and Rstudio.\r\n\r\nYou can download my resume here.\r\nYou know my name, now tell me about yourself:\r\n\r\n\r\nResearch\r\nEducation\r\nPh.D. Civil Engineering (Candidate) 2015 – 2021\r\nUniversity of Windsor, Windsor, Ontario, Canada\r\nB.Sc. Transportation Engineering 2005 – 2009\r\nUniversity of Engineering and Technology Lahore, Pakistan\r\n\r\n\r\n\r\n",
+      "last_modified": "2020-12-19T04:02:18-05:00"
     }
   ],
   "collections": ["posts/posts.json"]
