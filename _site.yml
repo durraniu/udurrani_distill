@@ -6,8 +6,10 @@ output_dir: "_site"
 theme: theme_umair.css
 navbar:
   right:
-    - text: "About"
+    - text: "Home"
       href: index.html
+    - text: "About"              # add
+      href: about.html
     - text: "Blog"
       href: Blog.html
     - text: "R Gems"

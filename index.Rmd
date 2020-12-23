@@ -1,7 +1,7 @@
 ---
-title: "Welcome to the website"
+title: "Umair Durrani"
 description: |
-  Read about me below, and checkout other pages on the top-right
+  Read about my research below and other pages on the top-right
 site: distill::distill_website
 ---
 
@@ -12,21 +12,6 @@ knitr::opts_chunk$set(echo = FALSE)
 # https://rstudio.github.io/distill/website.html
 
 ```
-
-## About me  
-
-I am a PhD student in Civil and Environmental Engineering at University of Windsor. My supervisors are Chris Lee and Hanna Maoh. My research is about driver behavior and its role in traffic safety in mixed traffic flow (cars and heavy-vehicles). I love R and Rstudio. 
-
-
-![](umair2.png){width=40%}
-
-You can download my resume [here](Umair_Durrani_Resume.pdf). 
-
-You know my name, now tell me about yourself:  
-
-
-<iframe src="https://umair.shinyapps.io/name_app/" style="width: 60%; height: 120px;"></iframe>
-
 
 ## Research
 
