@@ -1,26 +1,20 @@
 ---
 title: "Umair Durrani"
-description: |
-  Read about my research below and other pages on the top-right
+image: "umair2.png"
+links:
+  - label: LinkedIn
+    url: "https://www.linkedin.com/in/durraniu/"
+  - label: Twitter
+    url: "https://twitter.com/umairdurrani87"
+  - label: GitHub
+    url: "https://github.com/durraniu"
+output:
+  postcards::jolla
 site: distill::distill_website
 ---
+ 
+I am a PhD student in Civil and Environmental Engineering at University of Windsor. My research is about driver behavior and its role in traffic safety in mixed traffic flow. I love [`R`](https://cran.r-project.org/) and Rstudio. [Download my resume](Umair_Durrani_Resume.pdf). 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+You know my name, now tell me yours:  
 
-# Learn more about creating websites with Distill at:
-# https://rstudio.github.io/distill/website.html
-
-```
-
-## Research
-
-
-## Education
-
-### Ph.D. Civil Engineering (Candidate)	2015 – 2021
--   University of Windsor, Windsor, Ontario, Canada	 
-
-### B.Sc. Transportation Engineering	 2005 – 2009
--   University of Engineering and Technology Lahore, Pakistan
-
+<iframe src="https://umair.shinyapps.io/name_app/" style="width: 60%; height: 120px;"></iframe>
