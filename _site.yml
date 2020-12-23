@@ -12,6 +12,28 @@ navbar:
       href: Blog.html
     - text: "R Gems"
       href: https://rgems.netlify.app/
+    - text: "Tutorials"
+      menu:
+        - text: "Segmented"
+          href: https://umair.shinyapps.io/segmented_app_doc/
+        - text: "R for Driving Sim"
+          href: https://umair.shinyapps.io/R_for_driving_sim/
+        - text: "Ontario Weather Dashboard"
+          href: https://rpubs.com/durraniu/on_dashboard
+        - text: "Short Intro. to Data Science"
+          href: https://rpubs.com/durraniu/datavizr
+        - text: "Short Intro. to ggplot2"
+          href: https://github.com/durraniu/ggplot2_for_beginners/blob/master/Using_ggplot2.Rmd
+        - text: "Interactive Plotting in R"
+          href: https://rpubs.com/durraniu/interactive_plots
+        - text: "Histogram y axis"
+          href: https://rpubs.com/durraniu/sovg
+        - text: "Decision Tree Example"
+          href: https://rpubs.com/durraniu/DTQR
+        - text: "BBC 100 Women"
+          href: https://durraniu.github.io/BBC100/
+        - text: "Hypothesis Test for Population Mean"
+          href: https://rpubs.com/durraniu/HT1
     - icon: fab fa-github
       href: https://github.com/durraniu
     - icon: fab fa-twitter
