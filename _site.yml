@@ -2,6 +2,7 @@ name: "udurrani_distill"
 title: "Umair Durrani"
 description: |
   Home
+google_analytics: "UA-177852142-3"
 output_dir: "_site"
 theme: theme_umair.css
 navbar:
