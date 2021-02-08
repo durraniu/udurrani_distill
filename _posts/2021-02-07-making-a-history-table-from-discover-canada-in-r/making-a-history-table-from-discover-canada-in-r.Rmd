@@ -1,0 +1,195 @@
+---
+title: "Making a History Table of Discover Canada in R"
+description: |
+  Manipulating text with {quanteda} and creating a table with {reactable}
+author: Umair Durrani
+preview: https://media.giphy.com/media/3FmmhJdHN4PSESllzZ/giphy.gif
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 2
+    self_contained: false
+---
+
+[Discover Canada](https://www.canada.ca/en/immigration-refugees-citizenship/corporate/publications-manuals/discover-canada.html) is a study guide that is a required read for anyone preparing for the Canadian citizenship test. It contains information on Canadian government, culture and geography.
+
+There is also a lot of history sprinkled throughout the text, containing the exact year when something important happened. For example, the current border between Canada and The United States of America was partly a result of the 1812 war between the two countries.
+
+![](https://media.giphy.com/media/FejKb3bDS5c9a/giphy.gif){width="50"}
+
+## Can I use R to create a history timeline?
+
+As a new reader, trying to remember all of the Canadian histoy seems very daunting. I personally prefer a timeline with year and `what happened` information. So, I initially thought to create something like that by hand, but then:
+
+-   I recalled that *Discover Canada* is also available as a pdf and I could potentially import it in `R` as text
+-   I had heard the term *corpus* used for text documents in `R`, and thought that I could maybe convert the imported text into a corpus. A recent [R Ladies webinar](https://www.youtube.com/watch?v=NYuTFy_JRLA) showed exactly how (Thank you R-Ladies Tunis!)
+-   With text in `R`, I could use the `tidytext` package to extract the sentences and then get the history by years
+-   Finally, I could create a table with history in each year in increasing order using `reactable` package. My starting point here was [Tom Mock's blog](https://themockup.blog/posts/2020-05-13-reactable-tables-the-rest-of-the-owl/) (thanks Tom!)
+
+## Step 1: From pdf to dataframe
+
+I started by loading the `pdftools` and `quanteda` libraries for reading the *Discover Canada* pdf file and converting it into a corpus.
+
+```{r}
+suppressPackageStartupMessages(library(pdftools))
+suppressPackageStartupMessages(library(quanteda)) 
+```
+
+I first downloaded the large print pdf file from the [Discover Canada website](https://www.canada.ca/en/immigration-refugees-citizenship/corporate/publications-manuals/discover-canada.html). Following shows the page 13 from the pdf:
+
+![Page 13 from the Large Print pdf of Discover Canada](dc_pg13.PNG){width="50"}
+
+Next, I read this file in `R`:
+
+```{r}
+pdf_text <- pdf_text(pdf = "discover-large.pdf")
+
+head(pdf_text, 3)
+
+```
+
+The next step was to convert the raw text into a corpus. This is possible with the `corpus()` function from the `quanteda` package:
+
+```{r}
+dc_corpus <- corpus(pdf_text)
+
+docvars(dc_corpus)
+```
+
+The `quanteda::docvars()` function lets you find the existing variables and create new variables for the documents in a corpus. There were `r length(dc_corpus)` text "documents" in `dc_corpus` (you can find it with `length(dc_corpus)`). We know that there is only 1 document that I am using here, but the `pdftools::pdftext()` function split the original text into `r length(dc_corpus)` parts. That's why the corpus now has `r length(dc_corpus)` documents.
+
+### Interlude: Tokenization and Visualization of Text Data
+
+Now that the data is living in a corpus, there is a lot that I can do in terms of text analysis. For instance, [this awesome post](https://nlp-bergen.netlify.app/) by the R-Ladies presenter, [Cosima Meyer](https://twitter.com/cosima_meyer) introduces the terms for natural language processing and also shows how to clean and visualize text data. Based on that code, I produced a word cloud in three steps below, all powered by the `quanteda` package:
+
+-   Pre-process the text by removing punctuation, symbols and URL, and splitting the hyphenated words. This pre-processed result is called as tokens.
+
+```{r}
+# Text pre-processing
+dc_tokens <- tokens(
+    # Takes the corpus
+    dc_corpus,
+    # Remove punctuation
+    remove_punct = TRUE,
+    # Remove symbols
+    remove_symbols = TRUE,
+    # Remove URL
+    remove_url = TRUE,
+    # Split up hyphenated words
+    split_hyphens = TRUE
+  )
+
+
+head(dc_tokens, 3)
+```
+
+-   Create a document-feature matrix (DFM). DFM estimates the frequency of each word ('feature') across all the text components ('documents'). While creating DFM you can also *stem* words. Stemming refers to finding the common root of several words. For example, *government* and *governor* have the same root **govern**. Moreover, you can remove the *stopwords* that are common words in the language e.g. *the*, *are*, etc.
+
+```{r}
+# Calculate a document-feature matrix (DFM)
+
+dc_dfm <- dfm(
+  # Take the token object
+  dc_tokens,
+  # Lower the words
+  tolower = TRUE,
+  # Get the stem of the words
+  stem = TRUE,
+  # Remove stop words
+  remove = stopwords("english")
+)
+
+dc_dfm
+```
+
+-   Create a wordcloud:
+
+```{r, warning=FALSE, message=FALSE}
+suppressPackageStartupMessages(library(wesanderson))
+
+textplot_wordcloud(
+  # Load the DFM object
+  dc_dfm,
+  # Define the minimum number the words have to occur
+  min_count = 3,
+  # Define the maximum number the words can occur
+  max_words = 500,
+  # Define a color
+  color = wes_palette("Royal1")
+  
+)
+```
+
+As expected, **canada** was the most common word across all the paragraphs of text.
+
+Going back to our task of creating a dataframe out of the corpus, the following code shows how to do that (thanks to this [answer on stackoverflow](https://stackoverflow.com/a/33193705/2829961)):
+
+```{r, warning=FALSE, message=FALSE}
+suppressPackageStartupMessages(library(tidyverse))
+# Corpus to dataframe
+dc_df <- data.frame(text = sapply(dc_corpus, as.character), 
+           stringsAsFactors = FALSE, row.names = NULL) %>% 
+         as_tibble()
+
+head(dc_df, 3)
+```
+
+## Step 2: Split the text paragraph in each row into sentences
+
+I used the `tidytext` package for this step:
+
+```{r, warning=FALSE, message=FALSE}
+suppressPackageStartupMessages(library(tidytext))
+## divide into sentences
+dc_df_sent <- dc_df %>% 
+  unnest_tokens(output = sentence, input = text, token = "sentences")
+
+head(dc_df_sent, 3)
+```
+
+## Step 3: Find the sentences containing years
+
+I found all those sentences that contained a four-digit number that indicated a year in the text. Then I filtered out all other sentences and sorted the dataframe by year:
+
+```{r}
+## Find which sentence has a 4 digit number
+dc_df_year <- dc_df_sent %>% 
+  mutate(
+    has_a_num = str_detect(string = sentence, pattern = "[[:digit:]]{4}")
+  ) %>% 
+  filter(has_a_num == TRUE) %>% 
+  mutate(
+    year = str_extract(string = sentence, pattern = "[[:digit:]]{4}") %>% 
+      as.numeric()
+  ) %>% 
+  select(year, sentence) %>% 
+  arrange(year) 
+
+
+head(dc_df_year, 2)
+```
+
+## Step 4: Create a table of year and relevant history:
+
+Finally, I used the `reactable` package to create an interactive table that contained `year` as a group. Clicking on a year group reveals history in one or more sentences from Discover Canada:
+
+```{r, code_folding=TRUE, warning=FALSE, message=FALSE}
+suppressPackageStartupMessages(library(reactable))
+
+reactable(
+  dc_df_year,
+  groupBy = "year",
+  searchable = TRUE,
+  filterable = TRUE,
+  resizable = TRUE,
+  onClick = "expand",
+  showPageSizeOptions = TRUE,
+  columns = list(
+    year = colDef(name = "Year", maxWidth = 250),
+    sentence = colDef( name = "What happened?")
+   ),
+  theme = reactableTheme(backgroundColor = "#eadbcb")
+)
+```
+
+I am now ready to delve into the Discover Canada study guide further. Ideally, I want to extract the most useful phrases from each sentence for a given year, but at this point I do not know the best way to do that programmatically. If you have any ideas, please share with me on [twitter](https://twitter.com/umairdurrani87).
