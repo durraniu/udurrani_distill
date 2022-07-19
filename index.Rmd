@@ -44,9 +44,9 @@ cat(paste(trestles_mod, collapse = "\n"), file = system.file("pandoc_templates/t
 
 <br>
 
-I am a research associate in transportation engineering at the Civil and Environmental Engineering department at the University of Windsor. I design, run, and analyze experiments to understand driver behaviour. Moreover, I teach programmatic data analysis to students in the Transportation Systems Innovation Lab.
+I am a research associate in transportation engineering at the [Civil and Environmental Engineering department at the University of Windsor](https://www.uwindsor.ca/engineering/civil/). I design, run, and analyze experiments to understand driver behaviour. Moreover, I teach programmatic data analysis to students in the Transportation Systems Innovation Lab.
 
-I am also an instructor of data analytics at St. Clair College, Windsor, Ontario. I teach analytical tools (Python, R, Tableau, Excel), Statistics and manage capstone projects of students from diverse backgrounds.
+I am also an instructor of [data analytics at St. Clair College, Windsor, Ontario](https://www.stclaircollege.ca/programs/data-analytics-business). I teach analytical tools (Python, R, Tableau, Excel), Statistics and manage capstone projects of students from diverse backgrounds.
 
 I speak **English**, **Urdu** and **R** (programming) fluently. You can get in touch with me via [email](mailto:umairdurrani@outlook.com) or [twitter](https://twitter.com/umairdurrani87).
 
