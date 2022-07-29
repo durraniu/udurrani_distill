@@ -1,20 +1,115 @@
 ---
-title: "Umair Durrani"
+title: "Umair Durrani, Ph.D."
 image: "umair2.png"
 links:
   - label: LinkedIn
     url: "https://www.linkedin.com/in/durraniu/"
+  - label: Google Scholar
+    url: "https://scholar.google.ca/citations?user=jS1b6osAAAAJ&hl=en"
   - label: Twitter
     url: "https://twitter.com/umairdurrani87"
   - label: GitHub
     url: "https://github.com/durraniu"
 output:
-  postcards::jolla
+  postcards::trestles
 site: distill::distill_website
 ---
- 
-I am a PhD student in Civil and Environmental Engineering at University of Windsor. My research is about driver behavior and its role in traffic safety in mixed traffic flow. I love [`R`](https://cran.r-project.org/) and Rstudio. [Download my resume](Umair_Durrani_Resume.pdf). 
 
-You know my name, now tell me yours:  
+<!-- The postcard had a useless second scrollbar (in addition to the big one of distill). For some reason, I couldn't remove it with the CSS in custom.css. My only solution is to modify the source of the postcards::trestle template to remove this scrollbar. -->
 
-<iframe src="https://umair.shinyapps.io/name_app/" style="width: 60%; height: 120px;"></iframe>
+<!-- Same for font family -->
+
+```{r, include = FALSE}
+trestles_orig <- readLines(
+  system.file("pandoc_templates/trestles.html",
+              package = "postcards")
+)
+trestles_mod <- trestles_orig
+trestles_mod[
+  which(
+    grepl(
+      'class="d-flex flex-column col px-5 align-items-center align-self-center mh-100" style="overflow-y: scroll;"',
+      trestles_mod
+    )
+  )
+] <- '<div class="d-flex flex-column col px-5 align-items-center align-self-center mh-100" style="overflow-y: none;">'
+trestles_mod <- gsub("'Roboto Slab'", '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif', trestles_mod)
+trestles_mod <- gsub('style="height:15rem"', 'style="width: 35%"', trestles_mod)
+cat(paste(trestles_mod, collapse = "\n"), file = system.file("pandoc_templates/trestles.html",
+              package = "postcards"))
+```
+
+
+## **Welcome to my website!**
+
+<br>
+
+I am a research associate in transportation engineering at the [Civil and Environmental Engineering Department at the University of Windsor](https://www.uwindsor.ca/engineering/civil/). I design, run, and analyze experiments to understand driver behaviour. Moreover, I teach programmatic data analysis to students in the Transportation Systems Innovation Lab.
+
+I am also an instructor of [Data Analytics at St. Clair College, Windsor, Ontario](https://www.stclaircollege.ca/programs/data-analytics-business). I teach analytical tools (Python, R, Tableau, Excel), Statistics and manage capstone projects of students from diverse backgrounds.
+
+I speak **English**, **Urdu** and **R** (programming) fluently. You can get in touch with me via [email](mailto:umairdurrani@outlook.com) or [twitter](https://twitter.com/umairdurrani87).
+
+<br>
+
+```{css, echo = FALSE}
+.columnname {
+  font-size: 1.4rem; 
+  font-weight: 600;
+}
+.grad-item {
+  list-style: none; 
+  background-image: url(graduation-cap-solid.png); 
+  background-repeat: no-repeat;  
+  background-size: 1.2rem; 
+  padding-left: 2rem;
+}
+.grad-location {
+  font-size: 0.8rem;
+  color: grey;
+}
+```
+
+::: {style="display: grid; grid-template-columns: 40% 50%; grid-column-gap: 30px; line-height: 1.5rem;"}
+<div>
+
+[Interests]{.columnname}
+
+-   Intelligent Transportation Systems
+
+-   Driver Behaviour
+
+-   Autonomous Vehicles
+
+-   Spatiotemporal Analysis of Transportation Networks
+
+</div>
+
+<div>
+
+[Education]{.columnname}
+
+<ul>
+
+-   **PhD in Civil Engineering, 2022** <br>
+
+    <p class="grad-location">
+
+    University of Windsor, Ontario, Canada
+
+    </p>
+
+
+-   **B.Sc. in Transportation Engineering, 2009** <br>
+
+    <p class="grad-location">
+
+    University of Engineering and Technology, Lahore, Pakistan
+
+    </p>
+
+</ul>
+
+</div>
+:::
+
